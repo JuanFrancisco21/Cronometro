@@ -20,7 +20,7 @@ public class PrimaryController implements Initializable, Observer{
     Label labelTitleBase;
     @FXML
     Label labelTitleTimes;
-    @FXML
+    @FXML 
     Label labelTimes;
     @FXML
     Button btnStop;
