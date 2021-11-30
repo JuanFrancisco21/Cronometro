@@ -59,10 +59,12 @@ public class PrimaryController implements Initializable, Observer{
     public void onClickStopButton() {
     	if (Contador.getCronometroActivo()) {
     		Contador.setCronometroActivo(false);
+    		t.start();
     		btnStop.setText("Reanudar");
         	btnStart.setText("DETENIDO");
 		}else if (!Contador.getCronometroActivo()) {
 			Contador.setCronometroActivo(true);
+    		t.interrupt();
 			btnStop.setText("Parar");
 	    	btnStart.setText("CONTANDO");
 		}
