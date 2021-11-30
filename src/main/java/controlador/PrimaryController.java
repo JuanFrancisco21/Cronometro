@@ -37,6 +37,9 @@ public class PrimaryController implements Initializable, Observer{
 		c1.addObserver(this);
 		
 	}
+	/**
+	 * Funcion para iniciar hilo el cual empezará a contar
+	 */
     @FXML
     public void onClickStartButton() {
     	if (!c1.getCronometroActivo()) {
@@ -49,6 +52,9 @@ public class PrimaryController implements Initializable, Observer{
 
     }
 
+    /**
+     * Metodo para detener el contador hasta que lo reanudemos
+     */
     @FXML
     public void onClickStopButton() {
     	if (Contador.getCronometroActivo()) {
@@ -62,6 +68,9 @@ public class PrimaryController implements Initializable, Observer{
 		}
     }
 
+    /**
+     * Función para setear los valores del contador a 0
+     */
     @FXML
     public void onClickResetButton() {
 		fulltime.setText("00:00:00");
@@ -72,6 +81,9 @@ public class PrimaryController implements Initializable, Observer{
     	Contador.ResetTime();
     }
     
+    /**
+     * Función para cerrar el hilo contador al cerrar el programa
+     */
 	public static void cerrarHilo() {
 		t.stop();
 	}
