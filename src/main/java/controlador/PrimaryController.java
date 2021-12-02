@@ -33,7 +33,7 @@ public class PrimaryController implements Initializable, Observer{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		t.start();
+		//t.start();
 		c1.addObserver(this);
 		
 	}
@@ -42,13 +42,18 @@ public class PrimaryController implements Initializable, Observer{
 	 */
     @FXML
     public void onClickStartButton() {
-    	if (!c1.getCronometroActivo()) {
+    	if (!c1.getCronometroActivo() ) {
+    		if (t.isAlive()) {
+				t.resume();
+			}else {
+				t.start();
+			}
     		Contador.setCronometroActivo(true);
     		fulltime.setText("00:00:00");
     		btnStart.setDisable(true);
     		btnStart.setText("CONTANDO");
     		btnStop.setDisable(false);
-		} 
+		}
 
     }
 
@@ -59,12 +64,12 @@ public class PrimaryController implements Initializable, Observer{
     public void onClickStopButton() {
     	if (Contador.getCronometroActivo()) {
     		Contador.setCronometroActivo(false);
-    		t.start();
+    		t.interrupt();
     		btnStop.setText("Reanudar");
         	btnStart.setText("DETENIDO");
 		}else if (!Contador.getCronometroActivo()) {
 			Contador.setCronometroActivo(true);
-    		t.interrupt();
+			t.resume();
 			btnStop.setText("Parar");
 	    	btnStart.setText("CONTANDO");
 		}
@@ -81,6 +86,7 @@ public class PrimaryController implements Initializable, Observer{
     	btnStart.setText("Iniciar");
     	Contador.setCronometroActivo(false);
     	Contador.ResetTime();
+    	t.interrupt();
     }
     
     /**

@@ -19,7 +19,6 @@ public class Contador extends Observable implements Runnable{
 		cronometroActivo=false;
 	}
 	public Contador(String fullHour, int second, int hour, int minute) {
-		super();
 		this.fullHour = fullHour;
 		second = 0;
 		hour = 0;
