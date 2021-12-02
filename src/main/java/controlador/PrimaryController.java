@@ -84,6 +84,7 @@ public class PrimaryController implements Initializable, Observer{
 		btnStop.setDisable(true);
 		btnStart.setDisable(false);
     	btnStart.setText("Iniciar");
+    	btnStop.setText("Parar");
     	Contador.setCronometroActivo(false);
     	Contador.ResetTime();
     	t.interrupt();
