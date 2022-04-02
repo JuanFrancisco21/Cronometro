@@ -19,7 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-  	  	Parent root = loadFXML("Primary");
+    	Parent root = loadFXML("primary");
         scene = new Scene(root, root.prefWidth(0), root.prefHeight(0));
         stage.getIcons().add(new Image("https://cdn-icons-png.flaticon.com/512/49/49203.png"));
         stage.setTitle("Cronometro");
